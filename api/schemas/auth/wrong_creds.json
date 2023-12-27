@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/WrongCreds",
+  "definitions": {
+    "WrongCreds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "non_field_errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "login_state": {
+          "$ref": "#/definitions/LoginState"
+        }
+      },
+      "required": [
+        "login_state",
+        "non_field_errors"
+      ],
+      "title": "WrongCreds"
+    },
+    "LoginState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "captcha_needed": {
+          "type": "boolean"
+        },
+        "seconds_to_unlock": {
+          "type": "number"
+        },
+        "captcha_url": {
+          "type": "null"
+        },
+        "authorization_type": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "authorization_type",
+        "captcha_needed",
+        "captcha_url",
+        "seconds_to_unlock"
+      ],
+      "title": "LoginState"
+    }
+  }
+}

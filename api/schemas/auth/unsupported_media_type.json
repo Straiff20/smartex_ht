@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/UnsupportedMediaType",
+  "definitions": {
+    "UnsupportedMediaType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "type": "string"
+        },
+        "login_state": {
+          "$ref": "#/definitions/LoginState"
+        }
+      },
+      "required": [
+        "detail",
+        "login_state"
+      ],
+      "title": "UnsupportedMediaType"
+    },
+    "LoginState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "captcha_needed": {
+          "type": "boolean"
+        },
+        "seconds_to_unlock": {
+          "type": "integer"
+        },
+        "captcha_url": {
+          "type": "null"
+        },
+        "authorization_type": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "authorization_type",
+        "captcha_needed",
+        "captcha_url",
+        "seconds_to_unlock"
+      ],
+      "title": "LoginState"
+    }
+  }
+}
