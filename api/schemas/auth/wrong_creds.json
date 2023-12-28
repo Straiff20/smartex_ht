@@ -9,7 +9,8 @@
         "non_field_errors": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "enum": ["wrong_username_or_password"]
           }
         },
         "login_state": {

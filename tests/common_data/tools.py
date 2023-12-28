@@ -1,4 +1,7 @@
-class MyTools:
+import os
+
+
+class Tools:
     @staticmethod
     def get_creds(file_path: str) -> tuple[str, str]:
         """
@@ -12,3 +15,10 @@ class MyTools:
             password = lines[1].strip()
 
         return username, password
+
+    @staticmethod
+    def delete_file(file_path: str):
+        try:
+            os.remove(file_path)
+        except OSError:
+            raise f"Ошибка при удалении файла: {file_path}"

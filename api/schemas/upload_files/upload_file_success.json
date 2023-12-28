@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/UploadFileSuccess",
+  "definitions": {
+    "UploadFileSuccess": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pk": {
+          "type": "integer"
+        },
+        "ignored": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ignored",
+        "pk"
+      ],
+      "title": "UploadFileSuccess"
+    }
+  }
+}

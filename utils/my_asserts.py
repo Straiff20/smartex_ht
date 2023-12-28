@@ -6,6 +6,11 @@ def check_jsonschema(response, schema):
     with allure.step("Проверить json-схему"):
         try:
             jsonschema.validate(response, schema)
+            allure.attach(
+                repr(response),
+                name="{} response".format(response),
+                attachment_type=allure.attachment_type.JSON
+            )
         except Exception as e:
             assert False, e
 
@@ -13,3 +18,8 @@ def check_jsonschema(response, schema):
 def check_status_code(status_code, exp_code, response):
     with allure.step("Проверить статус ответа"):
         assert status_code == exp_code, f"Ожидается: {exp_code}\nПришел: {status_code}\n Полный ответ: {response}"
+        allure.attach(
+            repr(status_code),
+            name="status_codes: {} exp_code: {}".format(status_code, exp_code),
+            attachment_type=allure.attachment_type.JSON
+        )
