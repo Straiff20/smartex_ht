@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from enum import Enum
 
 
 @dataclass
@@ -15,3 +16,13 @@ class ContentTypes:
     multipart_form_data: str = "multipart/form-data"
     text_plain: str = "text/plain"
     audio_mp3: str = 'audio/mpeg'
+
+
+class FormatsFile(Enum):
+    """
+    Список используемых форматов файлов
+    """
+    format_png = "png"
+    format_jpeg = "jpeg"
+    format_pdf = "pdf"
+    format_ = "mp3"

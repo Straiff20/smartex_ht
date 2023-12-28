@@ -4,7 +4,7 @@ import pytest
 from api.models.authorization import AuthModel
 from utils.constatnts import USERNAME, PASSWORD
 from utils.my_asserts import check_jsonschema, check_status_code
-from tests.common_data.content_types import ContentTypes as CT
+from tests.common_data.content_data import ContentTypes as CT
 from tests.test_auth import auth
 
 

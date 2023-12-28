@@ -9,10 +9,12 @@ class AssetValuesModel(BaseModel):
 
 class AssetCreateModel(BaseModel):
     """
-    Общие сведения об asset для создания
-
     - external_id должен быть уникальной строкой
     """
     content_type: str = "base"
     external_id: str = str(uuid.uuid4())
     values: AssetValuesModel = AssetValuesModel()
+
+
+class AssetDeleteManyModel(BaseModel):
+    id__in: list[int]

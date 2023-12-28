@@ -1,5 +1,5 @@
 from utils.base_request import BaseRequest
-from tests.common_data.content_types import ContentTypes
+from tests.common_data.content_data import ContentTypes
 
 PATH: str = "/api-token-auth/"
 

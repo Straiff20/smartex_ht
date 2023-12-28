@@ -1,6 +1,7 @@
 import os
 
 from utils.constatnts import ARTIFACTS_DIR
+from tests.common_data.content_data import FormatsFile
 
 
 class FileGenerator:
@@ -9,7 +10,7 @@ class FileGenerator:
 
     def generate_file(self, file_volume: float, format_file: str) -> tuple[str, str]:
 
-        if format_file not in ['png', 'jpeg', 'mp3', 'pdf']:
+        if format_file not in [form.value for form in FormatsFile]:
             raise ValueError(f"Invalid format: {format_file}")
 
         file_name = self._generate_file_name(file_volume=file_volume, format_file=format_file)
@@ -35,9 +36,9 @@ class FileGenerator:
             name = "small"
         elif 1.0 > file_volume < 4.99:
             name = "middle"
-        elif 5.0 > file_volume < 9.99:
+        elif 5.0 > file_volume < 14.99:
             name = "large"
-        elif 10.0 > file_volume:
+        elif 15.0 > file_volume:
             name = "extra_large"
 
         return f"{name}_{format_file}"
