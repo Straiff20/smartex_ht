@@ -7,5 +7,5 @@ USERNAME: str = str(username)
 PASSWORD: str = str(password)
 
 ROOT_DIR = str(Path(__file__).parent.parent)
-ARTIFACTS_DIR: str = "artifacts"
+ARTIFACTS_DIR: str = r"artifacts"
 MAIN_URL: str = "https://semiautoqatz.pcvr-stg-api.smartex-it.com"

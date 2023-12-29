@@ -1,6 +1,8 @@
 import uuid
 from pydantic.main import BaseModel
 
+from tests.common_data.tools import Tools
+
 
 class AssetValuesModel(BaseModel):
     title: str = "Pliev"

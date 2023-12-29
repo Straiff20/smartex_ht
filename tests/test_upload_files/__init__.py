@@ -1,5 +1,5 @@
-from api.assets import CreateAssets
+from api.assets import AssetsRequests
 from api.upload_file import UploadFiles
 
-assets = CreateAssets()
+assets = AssetsRequests()
 upload_files = UploadFiles()

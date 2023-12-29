@@ -1,4 +1,5 @@
 import os
+import uuid
 
 
 class Tools:
@@ -17,8 +18,13 @@ class Tools:
         return username, password
 
     @staticmethod
-    def delete_file(file_path: str):
-        try:
-            os.remove(file_path)
-        except OSError:
-            raise f"Ошибка при удалении файла: {file_path}"
+    def delete_files(*file_paths):
+        for path in file_paths:
+            try:
+                os.remove(path)
+            except OSError:
+                raise Exception(f"Ошибка при удалении файла: {path}")
+
+    @staticmethod
+    def generate_unique_uuid() -> str:
+        return str(uuid.uuid4())
