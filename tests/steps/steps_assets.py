@@ -1,7 +1,6 @@
-from time import sleep
-
 import allure
 
+from time import sleep
 from api.assets import AssetsRequests
 
 
@@ -23,5 +22,3 @@ class StepsAssets:
         thumbnail = data["thumbnail"]
 
         return preview, thumbnail
-
-# todo: Реализовать до конца проверку на то, что импортированные файлы содержат оригинал: preview, thumbnail
