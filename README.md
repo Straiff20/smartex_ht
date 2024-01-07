@@ -2,7 +2,7 @@
 
 Задание описано в pdf [файле](utils/Home_Task_QA_SemiAuto.pdf)
 
-*Примечание*: сам реcурс находится по другому [адресу](https://semiautoqatz.pcvr-stg.smartex-it.com/)
+*Примечание*: сам сервис находится по другому [адресу](https://semiautoqatz.pcvr-stg.smartex-it.com/)
 
 ## Используемые инструменты:
 
