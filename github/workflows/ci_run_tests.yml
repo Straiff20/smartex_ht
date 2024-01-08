@@ -6,7 +6,7 @@ on:
       deployment_target:
         description: Choose marker
         required: true
-        default:
+        default: All tests
         type: choice
         options:
           - All tests
