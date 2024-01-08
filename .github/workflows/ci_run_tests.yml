@@ -35,15 +35,15 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Authorization tests
-        if: "github.event.inputs.deployment_target == 'Authorization tests'"
+        if: ".github.event.inputs.deployment_target == 'Authorization tests'"
         run: pytest -m "authorization" --alluredir=allure-results
 
       - name: Upload_files tests
-        if: "github.event.inputs.deployment_target == 'Upload_files tests'"
+        if: ".github.event.inputs.deployment_target == 'Upload_files tests'"
         run: pytest -m "upload_file" --alluredir=allure-results
 
       - name: All tests
-        if: "github.event.inputs.deployment_target == 'All tests'"
+        if: ".github.event.inputs.deployment_target == 'All tests'"
         run: pytest --alluredir=allure-results
 
       - name: Save allure results
@@ -63,7 +63,7 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '17'
-      - run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.23.1.tgz && sudo tar -zxvf allure-2.23.1.tgz -C /opt/ && sudo ln -s /opt/allure-2.23.1/bin/allure /usr/bi/allure
+      - run: sudo wget https://.github.com/allure-framework/allure2/releases/download/2.23.1.tgz && sudo tar -zxvf allure-2.23.1.tgz -C /opt/ && sudo ln -s /opt/allure-2.23.1/bin/allure /usr/bi/allure
 
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
