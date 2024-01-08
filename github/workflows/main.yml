@@ -1,4 +1,4 @@
-name: CI
+name: Autotests
 
 on:
   push
@@ -20,12 +20,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run tests and generate Allure report
-        run: |
-          pytest -v -s --alluredir results
-          allure generate results -o allure-report
-
-      - name: Upload Allure report
-        uses: actions/upload-artifact@v2
-        with:
-          name: allure-report
-          path: allure-report
+        run: pytest
