@@ -1,9 +1,7 @@
 from pathlib import Path
-from tests.common_data.tools import Tools
 
-username, password = Tools.get_creds(r'C:\Users\strai\smartex_creds.txt')  # заменить путь для Вашего файла с кредами
-USERNAME: str = str(username)
-PASSWORD: str = str(password)
+USERNAME: str = "semiautoqatz@tz.com"
+PASSWORD: str = "Pa$$w0rd!"
 
 ROOT_DIR = str(Path(__file__).parent.parent)
 ARTIFACTS_DIR: str = rf"{ROOT_DIR}/tests/test_upload_files/artifacts"
