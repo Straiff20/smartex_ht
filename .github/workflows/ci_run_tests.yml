@@ -67,7 +67,7 @@ jobs:
 
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
-      - run: allure generate -c results -o _site
+      - run: allure generate -c allure-results -o _site
 
       - name: Save generated report
         uses: actions/upload-artifact@v3
