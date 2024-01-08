@@ -31,24 +31,59 @@ jobs:
 
       - name: Authorization tests
         if: "github.event.inputs.deployment_target == 'Authorization tests'"
-        run: |
-          pytest -m "authorization" --alluredir results
-          allure generate results -o allure-report
+        run: pytest -m "authorization" --alluredir=allure-results
 
       - name: Upload_files tests
         if: "github.event.inputs.deployment_target == 'Upload_files tests'"
-        run: |
-          pytest -m "upload_file" --alluredir results
-          allure generate results -o allure-report
+        run: pytest -m "upload_file" --alluredir=allure-results
 
       - name: All tests
         if: "github.event.inputs.deployment_target == 'All tests'"
-        run: |
-          pytest --alluredir results
-          allure generate results -o allure-report
+        run: pytest --alluredir=allure-results
 
-      - name: Upload Allure report
-        uses: actions/upload-artifact@v2
+      - name: Save allure results
+        uses: actions/upload-artifact@v3
         with:
-          name: allure-report
-          path: allure-report
+          name: allure-results
+          path:
+            allure-results
+          retention-days: 1
+
+  generate-report:
+    runs-on: ubuntu-latest
+    needs: test
+    name: Generate report
+    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'microsoft'
+          java-version: '17'
+      - run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.23.1.tgz && sudo tar -zxvf allure-2.23.1.tgz -C /opt/ && sudo ln -s /opt/allure-2.23.1/bin/allure /usr/bi/allure
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+      - run: allure generate -c results -o _site
+
+      - name: Save generated report
+        uses: actions/upload-artifact@v3
+        with:
+          name: _site
+          path:
+            _site
+          retention-days: 1
+
+
+  publish-report:
+    runs-on: ubuntu-latest
+    needs: generate-report
+    name: Publish report
+    steps:
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1.2.9
