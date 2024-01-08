@@ -13,6 +13,11 @@ on:
           - Authorization tests
           - Upload_files tests
 
+permissions:
+  content: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
