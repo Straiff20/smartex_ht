@@ -8,8 +8,8 @@ from tests.test_upload_files.errors import ErrorTexts
 
 
 @pytest.mark.upload_file
-@allure.epic("upload small file")
-class TestUploadSmallFile:
+@allure.epic("upload file")
+class TestUploadFile:
 
     @pytest.mark.parametrize("case, file_name, content_type", [
         ("small_png", "small_png", ContentTypes.image_png),
